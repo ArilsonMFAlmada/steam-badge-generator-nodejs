@@ -1,0 +1,17 @@
+service: steam-badge-generator-js
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 128
+  region: us-east-1
+
+functions:
+  handler:
+    description: lambda that generate a steam badge
+    handler: index.handler 
+    events: 
+      - http: 
+          path: badge
+          method: post       
